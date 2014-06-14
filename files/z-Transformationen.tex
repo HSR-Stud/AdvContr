@@ -135,7 +135,7 @@
   &
   & $\frac{1}{1-z^{-1}} F(z)$ \\
 \hline
-  Anfangswert
+  Anfangswert (Impulse)
   & $\lim\limits_{t\rightarrow 0} f(t)$
   & $f(0)$
   &
@@ -143,13 +143,13 @@
   &
   & $\lim\limits_{z \rightarrow \infty} F(z)$ \\
 \hline
-  Endwert
+  Endwert (Impulse)
   &	$\lim\limits_{t\rightarrow \infty} f(t)$
   & $\lim\limits_{n\rightarrow \infty} f(n)$
   &
   & $\lim\limits_{s\rightarrow 0} sF(s)$
   &
-  & $\lim\limits_{z \rightarrow 1} (1-z^{-1} F(z))$\\
+  & $\lim\limits_{z \rightarrow 1} ((1-z^{-1}) F(z))$\\
 \hline
   Stabilität
   & -
@@ -188,5 +188,6 @@
 	\includegraphics[height=11cm]{bilder/Z-Lexikon.png}
 \end{minipage}
 \begin{minipage}{8cm}
+	$P_{ZOH}(z)=\frac{z-1}{z} Z_s \left\lbrace  \frac{P(s)}{s} \right\rbrace $\\
 	\includegraphics[width=8cm]{bilder/IIR-ArbeitsschritteundVarianten.png}
 \end{minipage}
