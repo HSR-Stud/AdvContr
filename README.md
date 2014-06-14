@@ -1,6 +1,6 @@
-RegT4
+MSE AdvCrtl
 =====
 
-Regelungstechnik 4 bei Markus Kottmann 2008.
+MSE AdvCrtl bei Markus Kottmann / Jürg Keller 2008.
 
 See CONTRIBUTORS.txt for author info and LICENSE.txt for licensing issues.

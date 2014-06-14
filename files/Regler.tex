@@ -1,22 +1,30 @@
-\section{G"ute}
+\section{Zustands-Regler}
+\subsection{State Feadback}
+
+$A_g = A-BK \; , \; B_g = BK_{vf} \; , \; C_g = C $\\
+$G(s) = \frac{\underline{Y}(s)}{\underline{U}(s)} = C(sI-A+BK)^{-1}BK_{vf}$\\
+$K_{vf} = (C(-A+BK)^{-1}B)^{-1}$
+
+\subsection{Pole Placement}
+
+\begin{tabular}{ll}
+	\parbox{8cm}{$det(\lambda I-A+BK) = (\lambda - \lambda_1)...(\lambda - \lambda_n)$} &
+	\parbox{3cm}{\includegraphics[width=3cm]{./bilder/pole_locations.png}}
+\end{tabular}
+
+\newpage
+
 \subsection{LQR-Entwurf (Linear-quadratic regulator)}
-	$$I(K_R,T_N,\ldots)=\int\limits^{\infty}_0 e(t)^2 dt = minimal$$\\
-	$$I(k)=\int\limits_0^{\infty} {x^T Q x+u^T R u}= minimal$$\\
-	Q: symmetrische positive(oft Diagonalmatrix); Bei SISO ist R eine Zahl\\
-	Optimaler Regler ist dann ein Riccati-Regler:\\
-	\begin{minipage}{10cm}
-	allgemeine Darstellung (n-te Ordnung):\\
-	$$ -A^T S - S A + S b R^{-1} b^T S - Q = 0$$
-	\end{minipage}
-	\begin{minipage}{6cm}
-    1.Ordnung:\\
-    $$-2aS+\frac{b^2S^2}{r}-q=0$$
-    \end{minipage}\\
-	S ist die L"osungsmatrix n-ter Ordnung 
+	$$J(K_R,T_N,\ldots)=\int\limits^{\infty}_0 e(t)^2 dt = minimal$$\\
+	$$J=\int\limits_0^{\infty} {x^T Q x+u^T R u}= minimal$$\\
+	Q,R: positive definite; Bei SISO ist R eine Zahl\\
+	Optimum: Riccati equation\\
+	$ A^T P + P A - P B R^{-1} B^T P = -Q$ \hspace{2cm}
+	P ist die L"osungsmatrix
 	\begin{aufzaehlung}
-    	\item Vorgabe der symmetrischen positiven Bewertungsmatrix Q und R
+    	\item $\dot{x} = Ax + Bu \; / \;  Q \; \text{und} \; R \; \text{gegeben}$
     	\textbf{meist} wird f"ur Q=I und R=1 eingesetzt.
-    	\item L"osungsmatrix S bestimmen (aus der L"osungsmenge den positiv
+    	\item L"osungsmatrix P bestimmen (aus der L"osungsmenge den positiv
     	definierten Wert)
-    	\item Reglervektor berechnen $k^T=R^{-1} b^T S$
+    	\item Reglervektor berechnen $K=R^{-1} B^T P$
     \end{aufzaehlung}

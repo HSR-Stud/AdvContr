@@ -1,9 +1,9 @@
-\section{Zustandsraumdarstellung \formelbuch{139} \tiny{$Revision: 1352 $}}
+\section{Zustandsraumdarstellung}
 \scriptsize
 Darstellung einer Differentialgleichung $n$. Ordnung durch ein
 Differentialgleichungssystem von $n$ Gleichungen 1. Ordnung.
 
-\subsection{Definition \formelbuch{140}}
+\subsection{Definition}
 \begin{tabular}{ll}
 \parbox{10cm}{
 	\includegraphics[width=10cm]{./bilder/zrd-schema.png}
@@ -28,19 +28,19 @@ Differentialgleichungssystem von $n$ Gleichungen 1. Ordnung.
  \end{tabular}
 
 
-\subsection{ZRD im Frequenzbereich \formelbuch{147} \matlab{ss2tf}}
-$$\boldsymbol{H(s)} = \frac{\underline{Y}(s)}{\underline{U}(s)} =
+\subsection{ZRD im Frequenzbereich \matlab{ss2tf}}
+$$\boldsymbol{G(s)} = \frac{\underline{Y}(s)}{\underline{U}(s)} =
 \boldsymbol{C}\left(s\boldsymbol{I_n}-\boldsymbol{A}\right)^{-1}\boldsymbol{B}+\boldsymbol{D}$$
 \\
-Die Grösse der Matrix $\boldsymbol {H(s)}$ entspricht der Grösse der
+Die Grösse der Matrix $\boldsymbol {G(s)}$ entspricht der Grösse der
 Durchgangsmatrix $\boldsymbol D$. $\boldsymbol{I_n}$ sei die Einheitsmatrix mit
 Grösse $n$ x $n$.
 
-\subsection{Übertragungsmatrizen \formelbuch{149}}
-$$H(s)=\frac{Y(s)}{U(s)}=\frac{b_{m} s^{m} + b_{m-1} s^{m-1} +\cdots+b_{1} s 
+\subsection{Übertragungsmatrizen}
+$$G(s)=\frac{Y(s)}{U(s)}=\frac{b_{m} s^{m} + b_{m-1} s^{m-1} +\cdots+b_{1} s 
 + b_{0}}{s^{n} + a_{n-1} s^{n-1} + \cdots + a_{1} s + a_{0}}$$\\
 Allgemeine Formel für $m=1$ Eingang, $k=1$ Ausgang, $n=2$ Integratoren:\\
-$$H(s) = \left [ 
+$$G(s) = \left [ 
 \begin{array}{c c}
 C_{11}  & C_{12}\\
 \end{array}
@@ -69,19 +69,19 @@ $$=  \frac{B_{11}C_{11}(s-A_{22}) + B_{11}C_{12}A_{21} +
 B_{21}C_{11}A_{12} + B_{21}C_{12}(s-A_{11})}{(s-A_{22})(s-A_{11}) - A_{12}A_{21}} + D$$
 
 
-\subsection{Stabilität \formelbuch{153}}
+\subsection{Stabilität}
 Wenn alle Realteile der Eigenwerte $\lambda$ der Systemmatrix ${\boldsymbol A}$
 negativ sind, ist ein LTI-System asymptotisch stabil, jedoch nicht umgekehrt:
 $\left | \lambda\boldsymbol{I} - \boldsymbol{A} \right |   =0 \rightarrow \forall~\lambda \quad\Re \{\lambda\}<0$
 
-\subsection{Beobachtbar- \& Steuerbarkeit \formelbuch{154}}
+\subsection{Beobachtbar- \& Steuerbarkeit}
 \subsubsection{Steuerbarkeit \matlab{ctrb}}
 Gibt es Zustände von $\underline{x} (t)$ die nicht von den
 Eingängen $\underline{u} (t)$ beeinflusst werden? Wenn ja,
 dann ist das System nicht steuerbar!
 
-Wenn $|Q_{Steuerbarkeit}|= \left| \left [ \boldsymbol{B~~AB~~ A^2B~\ldots~
-A^{n-1}B} \right ] \right|  \neq 0$, dann ist das System vollständig steuerbar.
+Wenn $rank \left[P_{c}\right] = rank \left[ \boldsymbol{B~~AB~~ A^2B~\ldots~
+A^{n-1}B} \right] = n $, dann ist das System vollständig steuerbar.
 
 
 \subsubsection{Beobachtbarkeit \matlab{obsv}}
@@ -91,20 +91,22 @@ $\underline{y}(t)$ nicht auf die Zustände $\underline{x}(t)$ schliessen!
 Das System ist nicht beobachtbar!
 
 
-Wenn $|Q_{Beobachtbarkeit}| = \left| \left [ \boldsymbol{
+Wenn $rank \left[P_{o}\right] = rank \left[ \boldsymbol{
 \begin{array}{c}
  C\\
  CA\\
 CA^2\\
 \vdots \\
 CA^{n-1}\\
-\end{array}}\right ] \right| \neq 0$, dann ist das System vollständig
+\end{array}} \right] = n$, dann ist das System vollständig
 beobachtbar.
 
-\subsubsection{Regelungsnormalform \formelbuch{150}}
+\subsubsection{Regelungsnormalform}
 \includegraphics[width=10cm]{./bilder/zrd-regelungsnormalform.png} \\
 \scriptsize
-\begin{equation*}
+$$G(s)=\frac{Y(s)}{U(s)}=\frac{b_{n-1} s^{n-1} + b_{n-2} s^{n-2} +\cdots+b_{1} s 
++ b_{0}}{s^{n} + a_{n-1} s^{n-1} + \cdots + a_{1} s + a_{0}} + d$$\\
+\begin{eqnarray*}
 \left [ 
 \begin{array}{c}
 \dot{x}_1(t)\\
@@ -113,7 +115,7 @@ beobachtbar.
 \dot{x}_{n-1}(t)\\
 \dot{x}_{n}(t)\\
 \end{array}
-\right ] =
+\right ] &=&
 \left [ 
 \begin{array}{c c c c c}
 0 & 1 & 0 & \ldots & 0\\
@@ -141,13 +143,11 @@ x_{n}(t)\\
 1\\
 \end{array}
 \right ]\cdot
-u(t),
-\end{equation*}
-\begin{equation*}
-y(t) = 
+u(t),\\
+y(t) &= &
 \left [ 
 \begin{array}{c c c c}
-b_0-a_0b_n & b_1-a_1b_n & \ldots & b_{n-1}-a_{n-1}b_n\\
+b_0 & b_1 & \ldots & b_{n-1}\\
 \end{array}
 \right ] \cdot
 \left [ 
@@ -161,17 +161,19 @@ x_{n}(t)\\
 \right ]+
 \left [ 
 \begin{array}{c}
-b_n \\
+d \\
 \end{array}
 \right ] \cdot
 u(t).
-\end{equation*}
+\end{eqnarray*}
 \normalsize
 
 
-\subsubsection{Beobachtungsnormalform \formelbuch{151}}
+\subsubsection{Beobachtungsnormalform}
 \includegraphics[width=10cm]{./bilder/zrd-beobachtungsnormalform.png} \\
 \scriptsize
+$$G(s)=\frac{Y(s)}{U(s)}=\frac{b_{n-1} s^{n-1} + b_{n-2} s^{n-2} +\cdots+b_{1} s 
++ b_{0}}{s^{n} + a_{n-1} s^{n-1} + \cdots + a_{1} s + a_{0}} + d$$\\
 \begin{eqnarray*}
 \left [ 
 \begin{array}{c}
@@ -203,11 +205,11 @@ x_{n}(t)\\
 \right ]+
 \left [ 
 \begin{array}{c}
-b_0-a_0b_n \\
-b_1-a_1b_n\\
-b_2-a_2b_n\\
+b_0 \\
+b_1\\
+b_2\\
 \vdots\\
-b_{n-1}-a_{n-1}b_n\\
+b_{n-1}\\
 \end{array}
 \right ]\cdot
 u(t),\\
@@ -228,7 +230,7 @@ x_{n}(t)\\
 \right ]+
 \left [ 
 \begin{array}{c}
-b_n \\
+d \\
 \end{array}
 \right ] \cdot
 u(t).
