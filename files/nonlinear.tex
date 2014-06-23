@@ -6,6 +6,6 @@ Nichtlineares System: $\dot{x} = f(x) + g(x) \cdot u$
 
 Lyapunov-Funktion V(x) mit folgenden Eigenschaften:
 \begin{enumerate}
-	\item $V(x)$ positiv definit für alle $x$.
+	\item $V(0) = 0$ und $V(x) > 0 \quad \forall x \neq 0$
 	\item $\dfrac{dV(x(t))}{dt}=\dfrac{dV(x)}{dx}\dfrac{dx(t)}{dt} \leq 0$ bedeutet Stabilität. $\dfrac{dV(x(t))}{dt} > 0$ bedeutet entweder Instabilität oder dass $V(x)$ keine geeignete Lyapunov-Funktion ist.
 \end{enumerate}

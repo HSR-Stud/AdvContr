@@ -1,0 +1,12 @@
+\section{Diskrete Regler}
+
+
+\subsection{Transfer Functions}
+$ y(n) = \sum\limits_{k=0}^{q} b(k)x(n-k) - \sum\limits_{k=1}^{p} a(k)y(n-k) \longleftrightarrow 
+  H(z) = \dfrac{B(z)}{A(z)} = \dfrac{b_0 + b_1z^{-1} + b_2 z^{-2} + \dots +
+      b_q z^{-q}}{1 + a_1z^{-1} + a_2 z^{-2} + \dots + a_p z^{-p}} $
+
+\begin{eqnarray*}
+x_{k+1}=F \cdot x_k + G \cdot u_k \\
+y_k = H \cdot x_k + J \cdot u_k
+\end{eqnarray*}      
