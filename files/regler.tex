@@ -12,6 +12,47 @@ $K_{vf} = (C(-A+BK)^{-1}B)^{-1}$
 	\parbox{3cm}{\includegraphics[width=3cm]{./bilder/pole_locations.png}}
 \end{tabular}
 
+\subsection{Series Connection}
+System 1:
+$x_1' = A_1x_1 + B_1u$ \quad
+$y_1 = C_1x_1 + D_1u$ \qquad
+System 2: 
+$x_2' = A_2x_2 + B_2y_1$ \quad
+$y_2 = C_2x_2 + D_2y_1$
+
+\begin{tabbing}
+State equation \quad \=
+$\begin{bmatrix}x_1' \\ x_2'\end{bmatrix} 
+     = \begin{bmatrix}
+       A_1 & 0 \\ 
+       B_2C_1 & A_2
+     \end{bmatrix} 
+     \begin{bmatrix}
+       x_1 \\ 
+       x_2
+     \end{bmatrix} +
+     \begin{bmatrix}
+       B_1 \\ 
+       B_2D_1
+     \end{bmatrix}u$\\
+       
+Output equation \>
+$\begin{bmatrix}y_2 \\ y_1\end{bmatrix} 
+     = \begin{bmatrix}
+      C_1 & 0 \\ 
+      D_2C_1 & C_2
+     \end{bmatrix} 
+     \begin{bmatrix}
+       x_1 \\ 
+       x_2
+     \end{bmatrix} +
+     \begin{bmatrix}
+       D_1 \\ 
+       D_2D_1
+     \end{bmatrix}u$
+\end{tabbing}
+
+
 \newpage
 
 \subsection{LQR-Entwurf (Linear-quadratic regulator)}
