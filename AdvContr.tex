@@ -19,7 +19,7 @@
 % Dokumentinformationen %
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\titleinfo}{Regelungstechnik 4 - Zusammenfassung}
-\newcommand{\authorinfo}{L. Schmid / H. Diethelm}  % Do not remove any names! Initial authors stay first.
+\newcommand{\authorinfo}{L. Schmid / H. Diethelm / J. Perdrizat}  % Do not remove any names! Initial authors stay first.
 \newcommand{\versioninfo}{$Revision: 1424 $ - powered by \LaTeX}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -34,17 +34,16 @@
 
 % Möglichst keine Ergänzungen hier, sondern in header.tex
 \begin{document}
+\tableofcontents
+\newpage
 \input{./files/zustandsraumdarstellung.tex}
-\input{./files/regler.tex}
-\newpage
-\input{./files/diskret.tex}
-\input{./files/ident.tex}
-\newpage
-\input{./files/robust.tex}
-\input{./files/nonlinear.tex}
-\newpage
-\input{./files/transformationen.tex}
-\newpage
+\input{./files/Regler.tex}
+\input{./files/observer.tex}
+\input{./files/systemIdentification.tex}
+\input{./files/Discretization}
+\input{./files/hInf.tex}
+\input{./files/nichtLinSysteme.tex}
+\input{./files/z-Transformationen}
 \input{./files/matrizen.tex}
-\newpage
+\input{./files/beschreibungsfunktionen.tex}
 \end{document}

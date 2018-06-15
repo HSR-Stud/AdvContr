@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Fri Jun 15 17:16:34 CEST 2018
+markTmpDer=true
+builderNum=2
+outputDir=out
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=AdvContr.tex
+outputFile=AdvContr.pdf
+langSpell=en
+markDer=true
+srcDir=
